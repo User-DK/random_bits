@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first,
+        .second,
+        .third {
+            display: flex;
+            gap: 10px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .fourth {
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .fourth ul {
+            list-style: none;
+        }
+
+        .fifth {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 80vw;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .balloon {
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        #balloons {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="second">
+        <input type="text" id="firstName" placeholder="First Name">
+        <input type="text" id="lastName" placeholder="Last Name">
+        <input type="text" id="fullName" placeholder="Full Name" readonly>
+        <button id="combinebtn">Combine Names</button>
+    </div>
+
+    <div class="third">
+        <button id="displaybtn">0</button>
+        <button id="incrementbtn">Increment</button>
+        <button id="resetbtn">Reset</button>
+    </div>
+
+    <div class="fourth">
+        <input type="text" id="search" placeholder="Search...">
+        <ul id="itemList">
+            <li>Date</li>
+            <li>Giraffe</li>
+            <li>Friend</li>
+            <li>Adam</li>
+            <li>Mike</li>
+            <li>Cherry</li>
+        </ul>
+    </div>
+
+    <div class="fifth">
+        <div id="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+        <button id="refreshbtn">Refresh</button>
+    </div>
+
+    <div class="first">
+        <input type="checkbox" id="myCheckbox">
+        <button id="checkbtn">Liked the game</button>
+    </div>
+    <script>
+        let value = 0;
+
+        const balloons = document.querySelectorAll('.balloon');
+
+        document.getElementById('checkbtn').addEventListener('click', function () {
+            document.getElementById('myCheckbox').checked = true;
+        });
+        document.getElementById('combinebtn').addEventListener('click', function () {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            document.getElementById('fullName').value = firstName + ' ' + lastName;
+        });
+
+        document.getElementById('incrementbtn').addEventListener('click', function () {
+            value++;
+            document.getElementById('displaybtn').textContent = value;
+        });
+
+        document.getElementById('resetbtn').addEventListener('click', function () {
+            value = 0;
+            document.getElementById('displaybtn').textContent = value;
+        });
+
+        document.getElementById('search').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            const items = document.querySelectorAll('#itemList li');
+            items.forEach(function (item) {
+                if (item.textContent.toLowerCase().includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        balloons.forEach(function (balloon) {
+            balloon.addEventListener('mouseover', function () {
+                this.style.visibility = 'hidden';
+            });
+        });
+
+        document.getElementById('refreshbtn').addEventListener('click', function () {
+            balloons.forEach(function (balloon) {
+                balloon.style.visibility = 'visible';
+            });
+        });
+    </script>
+</body>
+
+</html>

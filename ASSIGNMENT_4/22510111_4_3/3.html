@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #red {
+            background-color: red;
+            z-index: 1;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #button {
+            margin-top: 125px;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="red" class="circle"></div>
+    <div id="blue" class="circle"></div>
+    <button id="button">Click Me</button>
+
+    <script>
+        function removeRedCircle() {
+            var redCircle = document.getElementById('red');
+            redCircle.remove();
+        }
+
+        document.getElementById('button').addEventListener('click', removeRedCircle);
+    </script>
+
+</body>
+
+</html>

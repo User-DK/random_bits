@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Button</title>
+    <style>
+        #movingButton {
+            position: relative;
+            left: 0;
+            transition: left
+        }
+
+        button {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="movingButton">Move Me!</button>
+
+    <script>
+        let moveRight = true;
+        let moving = false;
+        let request
+
+        function move() {
+            const button = document.getElementById('movingButton');
+            let left = parseInt(button.style.left) || 0;
+
+            if (moveRight) {
+                left++;
+                if (left >= 500) moveRight = false;
+            } else {
+                left--;
+                if (left <= 0) moveRight = true;
+            }
+
+            button.style.left = left + 'px';
+
+            if (moving) {
+                request = requestAnimationFrame(move);
+            }
+        }
+
+        document.getElementById('movingButton').addEventListener('click', function () {
+            if (moving) {
+                moving = false;
+            } else {
+                moving = true;
+                move();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

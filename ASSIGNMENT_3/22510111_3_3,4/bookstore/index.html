@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fictional Bookstore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Fictional Bookstore</h1>
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+      <div id="hamburger-menu" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+  </header>
+
+  <section id="featured-books">
+    <h2>Featured Books</h2>
+    <div class="book">
+      <img src="book.png" alt="Book 1 Cover">
+      <h3>The Great Adventure</h3>
+      <p>by John Doe</p>
+    </div>
+    <div class="book">
+      <img src="book.png" alt="Book 2 Cover">
+      <h3>Mystery of the Night</h3>
+      <p>by Jane Smith</p>
+    </div>
+  </section>
+
+  <section id="all-books">
+    <h2>All Books</h2>
+    <div class="book-grid">
+      <div class="book">
+        <img src="book.png" alt="Book 1 Cover">
+        <h3>The Great Adventure</h3>
+        <p>by John Doe</p>
+        <button onclick="addToCart('The Great Adventure')">Add to Cart</button>
+      </div>
+      <div class="book">
+        <img src="book.png" alt="Book 2 Cover">
+        <h3>Mystery of the Night</h3>
+        <p>by Jane Smith</p>
+        <button onclick="addToCart('Mystery of the Night')">Add to Cart</button>
+      </div>
+      <div class="book">
+        <img src="book.png" alt="Book 3 Cover">
+        <h3>Science Wonders</h3>
+        <p>by Albert Newton</p>
+        <button onclick="addToCart('Science Wonders')">Add to Cart</button>
+      </div>
+      <!-- Add more books as needed -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

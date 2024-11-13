@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <input type="text" value="OFF" readonly />
+        <button type="button">Click Me</button>
+    </div>
+    <ul id="list">
+        <li>OFF</li>
+        <li>OFF</li>
+        <li>OFF</li>
+        <li>OFF</li>
+        <li>OFF</li>
+        <li>OFF</li>
+    </ul>
+    <script>
+        const buttonElem = document.querySelector("#wrapper button");
+        const inputElem = document.querySelector("#wrapper input");
+
+        const listItems = document.querySelectorAll("#list li");
+
+        const handleHover = (event) => {
+            const oldText = event.target.innerText;
+            return event.target.innerHTML = oldText === "<b>ON</b>" ? "<b>OFF</b>" : "<b>ON</b>";
+        };
+
+        if (listItems.length > 1) {
+            listItems.forEach((item) => item.addEventListener('mouseover', handleHover));
+        }
+
+        buttonElem.addEventListener('click', () => {
+            const oldText = inputElem.value;
+            return inputElem.value = oldText === "<b>ON</b>" ? "<b>OFF</b>" : "<b>ON</b>";
+        });
+
+
+    </script>
+</body>
+
+</html>

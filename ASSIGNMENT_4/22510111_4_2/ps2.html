@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #element {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="input" readonly />
+    <button type="button" id="button">Click me</button>
+
+    <div id="element">
+        Hover Me
+    </div>
+
+    <script>
+        const button = document.getElementById('button');
+        const input = document.getElementById('input');
+
+        const element = document.getElementById('element');
+
+        const toggleColor = (isEntering) => {
+            element.style.background = isEntering ? 'orange' : 'black';
+        };
+
+
+        const handleClick = () => {
+            input.value = 'Hello, World!';
+        };
+
+        button.addEventListener('click', (handleClick));
+
+        const changeText = () => {
+            element.innerText = 'Thanks!';
+        }
+        element.addEventListener('mouseover', (e) => {
+            toggleColor(true);
+            changeText();      
+        });
+    
+        element.addEventListener('mouseout', () => {
+            toggleColor(false);  
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
